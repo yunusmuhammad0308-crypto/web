@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi Bola dan Teks</title>
+    <style>
+        /* Latar Belakang Gradasi Animasi */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6);
+            background-size: 200% 200%;
+            animation: gradientBG 10s ease infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container dengan Efek Glassmorphism */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        /* Animasi Bola Glowing Bergerak Kanan-Kiri */
+        .bola-glowing {
+            width: 60px;
+            height: 60px;
+            background: #00f2fe;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 35px;
+            box-shadow: 0 0 15px #00f2fe, 0 0 30px #00f2fe;
+            /* Bola mulai dari kanan ke kiri, lalu kembali lagi (alternate) */
+            animation: pantulKananKiri 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes pantulKananKiri {
+            0% { left: calc(100% - 60px); }
+            100% { left: 0; }
+        }
+
+        /* Container Teks Berjalan */
+        .marquee-wrapper {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 15px 0;
+            white-space: nowrap;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Teks Bergerak Kanan ke Kiri */
+        .teks-berjalan {
+            display: inline-block;
+            padding-left: 100%; /* Memastikan teks mulai dari luar batas kanan container */
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            animation: jalanKeKiri 12s linear infinite;
+        }
+
+        @keyframes jalanKeKiri {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Elemen Bola -->
+        <div class="bola-glowing"></div>
+        
+        <!-- Elemen Teks Berjalan -->
+        <div class="marquee-wrapper">
+            <div class="teks-berjalan">Assalamu'alaikum Selamat Belajar Web Design.</div>
+        </div>
+    </div>
+
+</body>
+</html>
